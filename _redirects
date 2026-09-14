@@ -1,0 +1,4 @@
+/ /eoa-cash/ 302
+/eoa-cash /eoa-cash/ 302
+/eoa-cash/ /decks/eoa-cash/index.html 200
+/eoa-cash/* /decks/eoa-cash/:splat 200
