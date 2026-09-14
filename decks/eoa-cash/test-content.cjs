@@ -2,7 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const htmlPath = path.join(__dirname, 'index.html');
+const cssPath = path.join(__dirname, 'framework/css/slideshow.css');
+const jsPath = path.join(__dirname, 'framework/js/slideshow.js');
 const html = fs.readFileSync(htmlPath, 'utf8');
+const css = fs.readFileSync(cssPath, 'utf8');
+const js = fs.readFileSync(jsPath, 'utf8');
+const runtime = `${html}\n${css}\n${js}`;
 const failures = [];
 
 function fail(condition, message) {
@@ -117,6 +122,10 @@ fail(!/\b(?:Plan|Actual|Rolling)\b/.test(textAt(15)), 'weekly correction must no
 fail(/Plan/.test(textAt(16)) && /Actual/.test(textAt(16)) && /Rolling/.test(textAt(16)), 'monthly review must include Plan, Actual, Rolling');
 fail(html.includes("[15, 'Monthly']"), 'Monthly sidebar must begin at slide 16');
 fail(html.includes("[18, 'Action']"), 'Action sidebar must begin at slide 19');
+fail(html.includes('https://slides.darlison.com/eoa-cash/'), 'canonical deck URL is missing');
+fail(!/chatgpt\.site/i.test(html), 'ChatGPT Sites URLs must not appear in the live deck');
+fail(html.includes('./framework/css/slideshow.css'), 'deck must load the vendored framework stylesheet');
+fail(html.includes('./framework/js/slideshow.js'), 'deck must load the vendored framework script');
 fail(textAt(20).includes('cash surplus') && textAt(20).includes('2022'), 'closing story must preserve approved cash-surplus wording and 2022');
 fail(textAt(18).includes('Continue with the planned hiring and capital expenditures.'), 'decision must use owner wording');
 fail(!textAt(18).includes('The team needed no additional correction.'), 'removed decision sentence must stay removed');
@@ -166,21 +175,29 @@ for (const source of imageSources) {
   fail(/^data:image\/png;base64,[A-Za-z0-9+/]+=*$/.test(source) || fs.existsSync(path.join(__dirname, source)), `local image does not exist: ${source}`);
 }
 
-const fontSources = [...html.matchAll(/url\("([^"\)]+\.woff2)"\)/g)].map((match) => match[1]);
+const fontSources = [...css.matchAll(/url\("([^"\)]+\.woff2)"\)/g)].map((match) => match[1]);
 fail(fontSources.length === 2, `expected two local WOFF2 fonts, found ${fontSources.length}`);
 for (const source of fontSources) {
   fail(!/^https?:/i.test(source), `font must be local: ${source}`);
-  fail(fs.existsSync(path.join(__dirname, source)), `local font does not exist: ${source}`);
+  fail(fs.existsSync(path.join(path.dirname(cssPath), source)), `local font does not exist: ${source}`);
 }
-fail(!/fonts\.(?:googleapis|gstatic)\.com/i.test(html), 'presentation must not depend on Google Fonts');
+fail(!/fonts\.(?:googleapis|gstatic)\.com/i.test(runtime), 'presentation must not depend on Google Fonts');
 
 fail(/id="slideSidebar"/.test(html), 'sidebar is missing');
 fail(/id="sidebarToggle"/.test(html), 'collapsible sidebar control is missing');
 fail(/id="fullscreenButton"/.test(html), 'visible full-screen control is missing');
 fail(/id="fullscreenLabel">Full screen</.test(html), 'full-screen control must have a visible label');
-fail(/requestFullscreen/.test(html) && /exitFullscreen/.test(html), 'full-screen entry and exit behavior is missing');
-fail(/fullscreenchange/.test(html), 'full-screen control state must follow the browser');
-fail(/@media \(max-width: 1180px\)/.test(html), 'responsive sidebar breakpoint is missing');
+fail(/requestFullscreen/.test(runtime) && /exitFullscreen/.test(runtime), 'full-screen entry and exit behavior is missing');
+fail(/fullscreenchange/.test(runtime), 'full-screen control state must follow the browser');
+fail(/@media \(max-width: 1180px\)/.test(runtime), 'responsive sidebar breakpoint is missing');
+
+const canonicalFramework = path.join(__dirname, '../../framework');
+const vendoredFramework = path.join(__dirname, 'framework');
+for (const relative of ['css/slideshow.css', 'js/slideshow.js', 'shell.html', 'LICENSE']) {
+  const canonical = fs.readFileSync(path.join(canonicalFramework, relative));
+  const vendored = fs.readFileSync(path.join(vendoredFramework, relative));
+  fail(canonical.equals(vendored), `vendored framework file drifted from canonical: ${relative}`);
+}
 
 if (failures.length) {
   console.error('FAIL');

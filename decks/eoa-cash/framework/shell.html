@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Replace with the deck description.">
+  <link rel="icon" href="data:,">
+  <title>Deck title</title>
+  <link rel="preload" href="./framework/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./framework/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./framework/css/slideshow.css">
+</head>
+<body>
+  <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open slide navigation" aria-expanded="false" aria-controls="slideSidebar">☰</button>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+  <aside class="slide-sidebar" id="slideSidebar" aria-label="Slide navigation">
+    <header class="sidebar-head">
+      <h1>Deck title</h1>
+      <p>One-line deck summary.</p>
+    </header>
+    <nav class="sidebar-nav" id="sidebarNav" aria-label="Presentation slides"></nav>
+    <p class="sidebar-help">Arrow keys navigate. Press N for speaker notes. Press F for full screen.<br>S to hide sidebar.</p>
+  </aside>
+
+  <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+
+  <main id="presentation" aria-label="Deck title">
+    <section class="slide" id="slide-1" data-title="Opening">
+      <div class="slide-content">
+        <div class="brand-line"></div>
+        <p class="eyebrow">Deck · Series</p>
+        <h2 class="slide-title reveal">Opening title</h2>
+        <div class="slide-stage">
+          <p>Teaching copy goes here.</p>
+        </div>
+      </div>
+      <aside class="speaker-notes">
+        <p>Target time: 1 minute.</p>
+        <p>[Sources]</p>
+        <p>Replace with sources.</p>
+        <p>[/Sources]</p>
+      </aside>
+    </section>
+  </main>
+
+  <nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+  <div class="controls" aria-label="Presentation controls">
+    <button class="control-button control-button--fullscreen" id="sidebarDesktopToggle" type="button" aria-controls="slideSidebar" aria-expanded="true">Hide sidebar</button>
+    <button class="control-button" id="previousButton" type="button" aria-label="Previous slide">←</button>
+    <div class="control-count" id="controlCount" aria-live="polite">1 / 1</div>
+    <button class="control-button control-button--fullscreen" id="fullscreenButton" type="button" aria-label="Enter full screen" aria-pressed="false">
+      <span class="fullscreen-icon" aria-hidden="true">⛶</span>
+      <span class="fullscreen-label" id="fullscreenLabel">Full screen</span>
+    </button>
+    <button class="control-button" id="nextButton" type="button" aria-label="Next slide">→</button>
+  </div>
+
+  <aside class="notes-panel" id="notesPanel" aria-label="Speaker notes" aria-hidden="true">
+    <div class="notes-header">
+      <h2 id="notesTitle">Speaker notes</h2>
+      <button class="notes-close" id="notesClose" type="button" aria-label="Close speaker notes">×</button>
+    </div>
+    <div class="notes-body" id="notesBody"></div>
+  </aside>
+
+  <script src="./framework/js/slideshow.js"></script>
+  <script>
+    new SlidePresentation({
+      sidebarGroups: [
+        [0, 'Introduction'],
+      ],
+    });
+  </script>
+</body>
+</html>
