@@ -1,7 +1,23 @@
 # slideshow
 
-Open-source HTML slideshow framework (MIT) plus the EOA Cash Learning Day pilot
-deck (CC BY 4.0 teaching content).
+MIT HTML slideshow framework. Copy `framework/` and make your own deck.
+
+This repository also ships the EOA Cash Learning Day pilot (CC BY 4.0 teaching
+content) as a worked example.
+
+## Make your own slideshow
+
+The reusable part is `framework/`: CSS, JS, fonts, and `shell.html`.
+
+1. Copy `framework/` next to a new `index.html`.
+2. Start from `framework/shell.html` (keep the chrome IDs).
+3. Add `<section class="slide">` pages and construct `SlidePresentation`.
+
+Step-by-step IDs, options, keys, and licence notes:
+**[framework/README.md](framework/README.md)**.
+
+`decks/eoa-cash/` shows a full deck. Use it as a reference, not as the
+starter. Do not treat Byron’s teaching slides as MIT framework files.
 
 ## Canonical live deck
 
@@ -27,16 +43,21 @@ repository on Cloudflare Pages.
 - Geist fonts: SIL OFL 1.1 (`framework/fonts/LICENSE.txt`)
 - See `NOTICE` for Metronomics / third-party material (not re-licensed)
 
+If you remix the shell, keep the MIT notice. If you reuse EOA Cash teaching
+copy, follow CC BY 4.0 — that content is not MIT.
+
 ## Local preview
 
-Open `decks/eoa-cash/index.html` in a browser, or serve the repo root:
+Open `framework/shell.html` or `decks/eoa-cash/index.html` in a browser, or
+serve the repo root:
 
 ```sh
 python3 -m http.server 8080
 ```
 
 Pretty URLs (`/eoa-cash/`) need the `_redirects` rules, which Cloudflare Pages
-applies in production. Locally use `/decks/eoa-cash/`.
+applies in production. Locally use `/framework/shell.html` or
+`/decks/eoa-cash/`.
 
 ## Tests
 
@@ -50,6 +71,9 @@ cleanly when that toolchain is not installed.
 ## Hosting (Cloudflare Pages)
 
 This is a static site. Build command: none. Output directory: `/` (repo root).
+
+Your own deck can be any static host. The steps below are how this repo’s
+example is published; they are not required to remix the framework.
 
 ### Create the Pages project (Byron)
 
