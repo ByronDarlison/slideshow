@@ -3,5 +3,8 @@
 This repository includes Byron Darlison teaching content under CC BY 4.0 and
 framework code under MIT.
 
+Bundled Geist / Geist Mono fonts are SIL Open Font License 1.1. See
+`framework/fonts/LICENSE.txt`. Those fonts are not MIT-licensed.
+
 Third-party / Metronomics materials referenced in teaching content are NOT
 re-licensed by this repository. Their original terms continue to apply.

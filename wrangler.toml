@@ -1,0 +1,7 @@
+# Cloudflare Pages — static site from the repository root.
+# No build step. Pretty URLs come from `_redirects`.
+# Custom domain slides.darlison.com is attached in the dashboard (see README).
+
+name = "slideshow"
+compatibility_date = "2026-09-14"
+pages_build_output_dir = "."

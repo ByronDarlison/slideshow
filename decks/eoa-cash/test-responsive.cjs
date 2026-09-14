@@ -1,6 +1,27 @@
 const fs = require('fs');
 const path = require('path');
-const { chromium } = require('/Users/byron/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+
+function loadPlaywright() {
+  const candidates = [];
+  if (process.env.PLAYWRIGHT_MODULE) candidates.push(process.env.PLAYWRIGHT_MODULE);
+  candidates.push('playwright');
+  candidates.push('/Users/byron/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+  for (const candidate of candidates) {
+    try {
+      return require(candidate);
+    } catch (error) {
+      if (error.code !== 'MODULE_NOT_FOUND') throw error;
+    }
+  }
+  return null;
+}
+
+const playwright = loadPlaywright();
+if (!playwright) {
+  console.log('SKIP: Playwright is not installed. Content smoke is test-content.cjs; full viewport QA needs `npx playwright install chromium`.');
+  process.exit(0);
+}
+const { chromium } = playwright;
 
 const url = process.env.EOA_PRESENTATION_URL || 'http://127.0.0.1:8877/index.html';
 const outputDirectory = process.env.EOA_QA_OUTPUT_DIR || path.join(__dirname, 'qa');
@@ -131,10 +152,10 @@ async function measureDeck(page) {
 
 (async () => {
   fs.mkdirSync(outputDirectory, { recursive: true });
-  const browser = await chromium.launch({
-    headless: true,
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-  });
+  const launchOptions = { headless: true };
+  const chromePath = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+  if (fs.existsSync(chromePath)) launchOptions.executablePath = chromePath;
+  const browser = await chromium.launch(launchOptions);
   const failures = [];
 
   for (const viewport of viewports) {
