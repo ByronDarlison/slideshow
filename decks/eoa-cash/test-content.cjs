@@ -40,8 +40,8 @@ slides.forEach((match, index) => {
   fail(headings.length === 1, `slide ${number} must have one primary heading, found ${headings.length}`);
   fail(Boolean(notes), `slide ${number} has no speaker notes`);
   if (notes) {
-    fail(/Target time:/.test(notes[1]), `slide ${number} has no target time`);
-    fail(/\[Sources\][\s\S]*\[\/Sources\]/.test(notes[1]), `slide ${number} has no complete source block`);
+    fail(!/Target time:/.test(notes[1]), `slide ${number} must not include target-time metadata`);
+    fail(!/\[\/?Sources\]/.test(notes[1]), `slide ${number} must not include a source-reference block`);
   }
 });
 
@@ -99,11 +99,14 @@ for (const phrase of requiredVisiblePhrases) {
   fail(visible.includes(phrase), `missing required visible phrase: ${phrase}`);
 }
 
-const targetTimes = [...html.matchAll(/Target time: (\d+) minutes?(?: and (30) seconds)?[.,]/g)]
-  .map((match) => Number(match[1]) + (match[2] ? 0.5 : 0));
-const totalTargetMinutes = targetTimes.reduce((sum, minutes) => sum + minutes, 0);
-fail(targetTimes.length === 23, `expected 23 target times, found ${targetTimes.length}`);
-fail(totalTargetMinutes === 55, `speaker targets must total 55 minutes, found ${totalTargetMinutes}`);
+fail(!/Target time:/.test(html), 'Target time metadata must not return to the public deck');
+fail(!/\[\/?Sources\]/.test(html), 'source-reference blocks must not return to the public deck');
+
+const guide = fs.readFileSync(path.join(__dirname, 'SPEAKER-GUIDE.md'), 'utf8');
+fail(!/Target time:/.test(guide), 'Target time metadata must not return to SPEAKER-GUIDE');
+fail(!/^Slide \d+ target:/m.test(guide), 'per-slide target lines must not return to SPEAKER-GUIDE');
+fail(!/Opening overview target:/.test(guide), 'opening overview target must not return to SPEAKER-GUIDE');
+fail(!/Slide targets total/.test(guide), 'slide-target totals must not return to SPEAKER-GUIDE');
 
 fail(!/Sean Evans/.test(html), 'Sean Evans must not appear in the active deck or speaker notes');
 fail(!/class="ask-line/.test(html), 'active deck must not contain audience ask lines');
@@ -205,4 +208,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`PASS: 23 slides, one primary heading each, complete notes and sources, required distinctions, local assets, responsive sidebar, visible full-screen control, and ${totalTargetMinutes} minutes of planned delivery`);
+console.log('PASS: 23 slides, one primary heading each, complete notes without timing metadata or source blocks, required distinctions, local assets, responsive sidebar, and visible full-screen control');

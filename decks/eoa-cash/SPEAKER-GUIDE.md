@@ -28,8 +28,6 @@ Review drivers weekly and the cash outlook monthly. Take action early.
 
 Introduce the four-part system, then move immediately to the personal story.
 
-Opening overview target: 1 minute, using the existing delivery buffer.
-
 Transition: The next slide shows why I needed this system.
 
 ## Slide 2: 20 years of payroll pressure
@@ -60,14 +58,11 @@ It is not about becoming an accountant.
 
 It is about becoming a more capable manager of future cash.
 
-
 ### Stage direction
 
 Pause for ten seconds after the opening sentence.
 
 Let the audience absorb the personal stakes before adding context.
-
-Slide 2 target: 2 minutes and 30 seconds.
 
 Transition: In 2018, I adopted a business operating system.
 
@@ -94,8 +89,6 @@ Without enough cash, the plan eventually gives way to urgency.
 ### Stage direction
 
 Point to the Metronomics logo and give Shannon Byrne Susko direct credit.
-
-Slide 3 target: 2 minutes.
 
 Transition: That adoption transformed how we ran the company.
 
@@ -130,8 +123,6 @@ They should not merely observe the bank balance.
 Read the two outcomes from left to right.
 
 State the attribution boundary directly: cash was essential fuel, not the sole cause.
-
-Slide 4 target: 1 minute and 30 seconds.
 
 Transition: Start with the measurable operating drivers that change future cash.
 
@@ -191,8 +182,6 @@ If the answers connect, you have a useful cash driver.
 
 ### Stage direction
 
-Slide 5 target: 3 minutes.
-
 Transition: Map the key functions to find those drivers.
 
 ## Slide 6: Map how key functions drive cash
@@ -232,8 +221,6 @@ Once you find a driver, ask how much cash it changes and when.
 Trace the flow from left to right and end on Cash.
 
 Point to the code only after the flow is clear.
-
-Slide 6 target: 2 minutes.
 
 Transition: For each driver, ask how much cash changes and when.
 
@@ -307,8 +294,6 @@ The forecast becomes a shared operating model.
 
 Pause after each of the two cash questions.
 
-Slide 7 target: 2 minutes and 30 seconds.
-
 Transition: Assign accountability for those operating measures.
 
 ## Slide 8: Accountability by function
@@ -352,8 +337,6 @@ The remaining slides follow this target through weekly variance and the monthly 
 Emphasize the critical-number column, then the average accounts receivable days row.
 Transition: Use these operating relationships to build the 36-month cash forecast.
 
-Slide 8 target: 3 minutes and 30 seconds.
-
 ## Slide 9: Build the 36-month cash forecast
 
 ### Spoken delivery
@@ -370,7 +353,6 @@ Monthly actuals feed the model. Weekly review manages the operating drivers.
 ### Stage direction
 
 Trace the operating model through both cash in and cash out, then into the forecast.
-Use two minutes of the existing delivery buffer.
 Transition: Schedule the coming quarter's driver targets across thirteen weeks.
 
 ## Slide 10: Set quarterly 13-week targets
@@ -401,8 +383,6 @@ The names and weekly series are approved teaching examples, not historical compa
 
 Transition: First, distinguish the weekly and monthly review rhythms.
 
-Slide 10 target: 2 minutes.
-
 ## Slide 11: One plan. Two review rhythms
 
 ### Spoken delivery
@@ -428,8 +408,6 @@ The weekly review does not update Rolling.
 Trace the planning path across the top, then explain weekly on the left and monthly on the right.
 
 Transition: Start with the weekly scoreboard and compare actual results with the targets we just set.
-
-Slide 11 target: 3 minutes.
 
 ## Slide 12: Review weekly actual against target
 
@@ -464,8 +442,6 @@ It does not update the rolling cash forecast.
 
 Trace the four functions, their weekly history, and the current red result for average accounts receivable days.
 
-Slide 12 target: 2 minutes and 30 seconds.
-
 Transition: Look closely at average accounts receivable days: 42 against the 35-day target.
 
 ## Slide 13: Catch the 42-day variance
@@ -493,8 +469,6 @@ It did not update Rolling.
 ### Stage direction
 
 Point to the seven-day difference and label 42 as the current result.
-
-Slide 13 target: 3 minutes.
 
 Transition: This red result calls for a Situation Report.
 
@@ -526,8 +500,6 @@ Weekly review does not update the rolling forecast.
 
 Trace Situation, Cause, Correction, and Follow-up.
 
-Slide 14 target: 2 minutes and 30 seconds.
-
 Transition: Action corrects performance. Follow-up confirms whether the driver returns to target.
 
 ## Slide 15: Act and confirm the correction
@@ -555,8 +527,6 @@ Trace the weekly variance, corrective action, and green result from left to righ
 Do not name one corrective action or an exact month-end value.
 
 Then say: The weekly sequence is complete. At month-end, move from the driver to the cash outlook.
-
-Slide 15 target: 2 minutes.
 
 ## Slide 16: Review the 36-month outlook monthly
 
@@ -589,8 +559,6 @@ Weekly review manages drivers instead.
 ### Stage direction
 
 Trace Plan, Actual, and Rolling, then point to future obligations.
-
-Slide 16 target: 4 minutes.
 
 Transition: The monthly review then shows the resulting cash consequence.
 
@@ -652,8 +620,6 @@ Pause on $80,000.
 
 Then name both contributors with equal emphasis.
 
-Slide 17 target: 3 minutes and 30 seconds.
-
 Transition: Use that evidence to decide whether the plan needs to change.
 
 ## Slide 18: Stay the course
@@ -676,8 +642,6 @@ Pause after `stay the course`.
 
 Emphasize that restraint can be an active decision.
 
-Slide 18 target: 2 minutes and 30 seconds.
-
 Transition: Seeing cash early creates time to manage future obligations.
 
 ## Slide 19: Manage future obligations
@@ -697,8 +661,6 @@ The bank balance often reveals the same problem after options narrow.
 ### Stage direction
 
 Trace the two-step payoff from future visibility to managed obligations.
-
-Slide 19 target: 3 minutes.
 
 Transition: Return to the company story to see what this capacity made possible.
 
@@ -734,8 +696,6 @@ Pause on the 2018 Metronomics turning point.
 
 End on the cash surplus and capacity, not the sale multiple.
 
-Slide 20 target: 2 minutes and 30 seconds.
-
 Transition: The complete operating system comes from Shannon Byrne Susko's Metronomics work.
 
 ## Slide 21: Metronomics: the three books
@@ -760,8 +720,6 @@ Point to the Metronomics logo and name Shannon Byrne Susko.
 
 Then move across the three books from left to right.
 
-Slide 21 target: 1 minute.
-
 Transition: Return to Cash and the four management steps before sharing the resources.
 
 ## Slide 22: Cash: the management habit
@@ -785,8 +743,6 @@ Act before cash becomes a crisis.
 Return to the opening promise through the same four-part structure.
 
 Invite questions within the remaining delivery buffer.
-
-Slide 22 target: 2 minutes and 30 seconds.
 
 Transition: The final slide provides the presentation, articles, and templates.
 
@@ -816,12 +772,3 @@ Give participants time to scan the resources they want.
 
 Leave the resource slide visible as the presentation ends.
 
-Slide 23 target: 1 minute.
-
-## Timing and delivery boundary
-
-Slide targets total 55 minutes. The remaining five minutes cover questions and delivery variation.
-
-Natural emphasis and transitions fit within the slide targets; do not add a separate pause allowance.
-
-Byron does not require rehearsal or audience exercises. Full presentation tests passed. Actual delivery timing remains unverified.
